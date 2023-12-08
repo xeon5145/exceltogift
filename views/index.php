@@ -7,10 +7,16 @@
     <div class="col-10 back-block">
         <form action="" id="qbFileForm" onsubmit="return false">
 
-        <div class="mb-3">
-            <label for="questionBankName" class="form-label">Question Bank Name</label>
-            <input type="text" class="form-control" id="qbName" title="Enter Question Bank Name" placeholder="Enter Question Bank Name" required>
-        </div>
+            <div class="mb-3">
+                <div class="alert alert-info" role="alert">
+                    Standardise the excel file to avoid irrelevant lines
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="questionBankName" class="form-label">Question Bank Name</label>
+                <input type="text" class="form-control" id="qbName" name="qbName" title="Enter Question Bank Name" placeholder="Enter Question Bank Name" required>
+            </div>
 
             <div class="mb-3">
                 <label for="questionBank" class="form-label">Select Question Bank Langauge</label>

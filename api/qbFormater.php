@@ -20,7 +20,8 @@ if (isset($_FILES['questionBank']) && $_FILES['questionBank']['error'] === UPLOA
     echo '<h2>CSV Data:</h2>';
 
     // getting job role name
-    $jobRoleName = $data[1][1];
+    echo $jobRoleName = $_POST['qbName']."<br>";
+    echo $qblanguage = $_POST['langauge']."<br>";
     // getting job role name
 
     for($i = 1 ; $i < count($data);$i++)
