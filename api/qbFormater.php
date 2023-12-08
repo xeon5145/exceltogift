@@ -19,9 +19,14 @@ if (isset($_FILES['questionBank']) && $_FILES['questionBank']['error'] === UPLOA
     // Display the CSV data (you can also save it to a file or perform other operations)
     echo '<h2>CSV Data:</h2>';
 
+    // getting job role name
+    $jobRoleName = $data[1][1];
+    // getting job role name
+
     for($i = 1 ; $i < count($data);$i++)
     {
         var_dump($data[$i]);
+
     }
 }
 ?>
