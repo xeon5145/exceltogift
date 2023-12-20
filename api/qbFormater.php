@@ -53,28 +53,28 @@ if (isset($_FILES['questionBank']) && $_FILES['questionBank']['error'] === UPLOA
         // options and answers
         $answer = $data[$i][8];
         switch ($answer) {
-            case 'A':
+            case 'A' OR 'a':
                 $option1 = '=' . $data[$i][4];
                 $option2 = '~' . $data[$i][5];
                 $option3 = '~' . $data[$i][6];
                 $option4 = '~' . $data[$i][7];
                 break;
 
-            case 'B':
+            case 'B' OR 'b':
                 $option1 = '~' . $data[$i][4];
                 $option2 = '=' . $data[$i][5];
                 $option3 = '~' . $data[$i][6];
                 $option4 = '~' . $data[$i][7];
                 break;
 
-            case 'C':
+            case 'C' OR 'c':
                 $option1 = '~' . $data[$i][4];
                 $option2 = '~' . $data[$i][5];
                 $option3 = '=' . $data[$i][6];
                 $option4 = '~' . $data[$i][7];
                 break;
 
-            case 'D':
+            case 'D' OR 'd':
                 $option1 = '~' . $data[$i][4];
                 $option2 = '~' . $data[$i][5];
                 $option3 = '~' . $data[$i][6];
