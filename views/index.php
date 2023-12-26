@@ -8,9 +8,10 @@
         <form action="" id="qbFileForm" onsubmit="return false">
 
             <div class="mb-3">
-                <div class="alert alert-info" role="alert">
+                <!-- <div class="alert alert-info" role="alert">
                     Standardise the excel file to avoid irrelevant lines
-                </div>
+                </div> -->
+                <a class="fw-bold text-decoration-none text-info" download="Question Bank Template" href="Template/Question Bank Sample.xlsx">Click here to downlaod question bank file template</a>
             </div>
 
             <div class="mb-3">
@@ -34,17 +35,44 @@
                 <input type="file" class="form-control" name="questionBank" id="questionBank" required>
             </div>
 
+            <p class="">
+
+            </p>
+
             <input type="submit" class="btn btn-primary" name="fileSubmit" id="fileSubmit" value="Confirm">
 
+
+            
         </form>
 
     </div>
     <div class="col-1"></div>
 </div>
 
-<div class="row">
+<div id="formatedPreview" style="display: none;"></div>
+
+<div class="row mt-5" >
     <div class="col-1"></div>
-    <div class="col-10" id="formatedPreview"></div>
+    <div class="col-10 back-block" id="successDiv" style="display: none;">
+        <div class="text-center text-info">
+            <strong>
+                <p>The file has been converted successfully , Please click the button below to donwload your file</p>
+            </strong>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-success" onclick="exportTextToFile()" >Export Text</button>
+        </div>
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row mt-5" >
+    <div class="col-1"></div>
+    <div class="col-10 back-block" id="failedDiv" style="display: none;">
+    <div class="alert alert-warning" role="alert">
+        File not converted , please refer to the template file and try again
+</div>
+    </div>
     <div class="col-1"></div>
 </div>
 
@@ -63,14 +91,53 @@
                 processData: false,
                 success: function(data) {
                     $("#formatedPreview").html(data);
-                    console.log("script is working");
 
+                    if(data == '0')
+                    {
+                        $('#failedDiv').css('display', 'block');
+                    }
+                    else
+                    {
+                        $('#successDiv').css('display', 'block');
+                    }
                 },
                 error: function(xhr, status, error) {
-                    console.error("AJAX Request Error:", status, error);
+                    // console.error("AJAX Request Error:", status, error);
+                    $('#failedDiv').css('display', 'block');
                     // Add user-friendly error handling if needed
                 }
             });
         });
     });
+
+
+    function exportTextToFile() {
+
+        var qbName = document.getElementById('qbName').value;
+        var qblanguage = document.getElementById('language').value;
+        var textContent = document.getElementById('formatedPreview').innerText;
+
+        // Create a Blob with the text content
+        var blob = new Blob([textContent], {
+            type: 'text/plain'
+        });
+
+        // Create a link element
+        var link = document.createElement('a');
+
+        // Set the download attribute and file name
+        link.download = qbName + ' - ' + qblanguage;
+
+        // Create a URL for the Blob and set it as the href attribute
+        link.href = window.URL.createObjectURL(blob);
+
+        // Append the link to the document
+        document.body.appendChild(link);
+
+        // Trigger a click on the link to start the download
+        link.click();
+
+        // Remove the link from the document
+        document.body.removeChild(link);
+    }
 </script>

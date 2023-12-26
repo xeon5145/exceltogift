@@ -16,9 +16,6 @@ if (isset($_FILES['questionBank']) && $_FILES['questionBank']['error'] === UPLOA
     // Get all the rows from the active sheet
     $data = $spreadsheet->getActiveSheet()->toArray();
 
-    // Display the CSV data (you can also save it to a file or perform other operations)
-    echo '<h2>CSV Data:</h2>';
-
     // getting job role name
     $jobRoleName = $_POST['qbName']; //Name of question bank
     $qblanguage = $_POST['langauge']; //Language of question bank
@@ -53,28 +50,28 @@ if (isset($_FILES['questionBank']) && $_FILES['questionBank']['error'] === UPLOA
         // options and answers
         $answer = $data[$i][8];
         switch ($answer) {
-            case 'A' OR 'a':
+            case 'A' OR 'a' OR '1':
                 $option1 = '=' . $data[$i][4];
                 $option2 = '~' . $data[$i][5];
                 $option3 = '~' . $data[$i][6];
                 $option4 = '~' . $data[$i][7];
                 break;
 
-            case 'B' OR 'b':
+            case 'B' OR 'b' OR '2':
                 $option1 = '~' . $data[$i][4];
                 $option2 = '=' . $data[$i][5];
                 $option3 = '~' . $data[$i][6];
                 $option4 = '~' . $data[$i][7];
                 break;
 
-            case 'C' OR 'c':
+            case 'C' OR 'c' OR '3':
                 $option1 = '~' . $data[$i][4];
                 $option2 = '~' . $data[$i][5];
                 $option3 = '=' . $data[$i][6];
                 $option4 = '~' . $data[$i][7];
                 break;
 
-            case 'D' OR 'd':
+            case 'D' OR 'd' OR '4':
                 $option1 = '~' . $data[$i][4];
                 $option2 = '~' . $data[$i][5];
                 $option3 = '~' . $data[$i][6];
@@ -94,5 +91,9 @@ if (isset($_FILES['questionBank']) && $_FILES['questionBank']['error'] === UPLOA
         echo "<br>";
         // writing data
     }
+}
+else
+{
+    echo '0';
 }
 ?>
