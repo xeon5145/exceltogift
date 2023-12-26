@@ -42,16 +42,16 @@
             <input type="submit" class="btn btn-primary" name="fileSubmit" id="fileSubmit" value="Confirm">
 
 
-            
+
         </form>
 
     </div>
     <div class="col-1"></div>
 </div>
 
-<div id="formatedPreview" style="display: none;"></div>
 
-<div class="row mt-5" >
+
+<div class="row mt-5">
     <div class="col-1"></div>
     <div class="col-10 back-block" id="successDiv" style="display: none;">
         <div class="text-center text-info">
@@ -60,18 +60,22 @@
             </strong>
         </div>
         <div class="text-center">
-            <button class="btn btn-success" onclick="exportTextToFile()" >Export Text</button>
+            <button class="btn btn-success" onclick="exportTextToFile()">Export Text</button>
         </div>
     </div>
     <div class="col-1"></div>
 </div>
 
-<div class="row mt-5" >
-    <div class="col-1"></div>
-    <div class="col-10 back-block" id="failedDiv" style="display: none;">
-    <div class="alert alert-warning" role="alert">
-        File not converted , please refer to the template file and try again
+<div class="text-center text-secondary mt-3" id="orDiv" style="display: none;">
+    <strong>
+        <p>Or copy from below</p>
+    </strong>
 </div>
+
+<div class="row mt-3" >
+    <div class="col-1"></div>
+    <div class="col-10 back-block p3" id="PreviewDiv" style="display: none;">
+        <div id="formatedPreview"></div>
     </div>
     <div class="col-1"></div>
 </div>
@@ -91,15 +95,9 @@
                 processData: false,
                 success: function(data) {
                     $("#formatedPreview").html(data);
-
-                    if(data == '0')
-                    {
-                        $('#failedDiv').css('display', 'block');
-                    }
-                    else
-                    {
-                        $('#successDiv').css('display', 'block');
-                    }
+                    $('#successDiv').css('display', 'block');
+                    $('#orDiv').css('display', 'block');
+                    $('#PreviewDiv').css('display', 'block');
                 },
                 error: function(xhr, status, error) {
                     // console.error("AJAX Request Error:", status, error);

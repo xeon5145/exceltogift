@@ -92,8 +92,4 @@ if (isset($_FILES['questionBank']) && $_FILES['questionBank']['error'] === UPLOA
         // writing data
     }
 }
-else
-{
-    echo '0';
-}
 ?>
