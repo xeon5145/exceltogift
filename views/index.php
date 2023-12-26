@@ -72,9 +72,9 @@
     </strong>
 </div>
 
-<div class="row mt-3" >
+<div class="row mt-3 me-3" >
     <div class="col-1"></div>
-    <div class="col-10 back-block p3" id="PreviewDiv" style="display: none;">
+    <div class="col-10 back-block p-5" id="PreviewDiv" style="display: none;">
         <div id="formatedPreview"></div>
     </div>
     <div class="col-1"></div>
