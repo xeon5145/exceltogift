@@ -1,5 +1,5 @@
 <div class="container-fluid bg-primary">
-    <p class="h5 text-white">Question Bank File Formater</p>
+    <p class="h5 py-3 text-white">Question Bank File Formater</p>
 </div>
 
 <div class="row mt-5">
@@ -56,7 +56,7 @@
     <div class="col-10 back-block" id="successDiv" style="display: none;">
         <div class="text-center text-info">
             <strong>
-                <p>The file has been converted successfully , Please click the button below to donwload your file</p>
+                <p>The file has been converted successfully , Please click the button below to download your file</p>
             </strong>
         </div>
         <div class="text-center">
@@ -88,7 +88,7 @@
             var formData = new FormData(this);
 
             $.ajax({
-                url: "api/qbFormater.php",
+                url: "api/qbFormater2.php",
                 type: "POST",
                 data: formData,
                 contentType: false,
